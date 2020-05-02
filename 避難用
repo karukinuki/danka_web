@@ -1,0 +1,72 @@
+<% @pasts.each do |past| %>
+<div class="o-pastlist">
+  <div class="container">
+    <section class="line">
+      <div class="ii">
+        <div class="">
+          <span>俗名：<%= past.danka_id %><%= past.id %></span>
+          <span><ruby><rb><%= past.name %><rt><%= past.subname %></ruby></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>戒名：<%= @id %></span>
+          <span><ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>命日：</span>
+          <span><%= past.deathday %></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>続柄：</span>
+          <span><%= past.relation %></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<% end %>
+
+旧型
+<div class="o-pastlist">
+  <div class="container">
+    <section class="line">
+      <div class="ii">
+        <div class="">
+          <span>俗名：</span>
+          <span><ruby><rb><%= @pasts.name %><rt><%= @pasts.subname %></ruby></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>戒名：</span>
+          <span><ruby><rb><%= @pasts.penname %><rt><%= @pasts.subpenname %></ruby></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>命日：</span>
+          <span><%= @pasts.deathday %></span>
+        </div>
+      </div>
+      <div class="ii">
+        <div class="">
+          <span>続柄：</span>
+          <span><%= @pasts.relation %></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+いらないかも
+@danka=Danka.find_by(params[:id])
+@edit=@danka.check:params[:check]
+(check:params[:check],subname:params[:subname],name:params[:name],postal:params[:postal],addless:params[:addless],
+  addless2:params[:addless2],tel:params[:tel],email:params[:email],mark1:params[:mark1],mark2:params[:mark2])
+@danka.save
+redirect_to("/dankas/#{params[:id]}")

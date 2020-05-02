@@ -1,0 +1,2 @@
+class Danka < ApplicationRecord
+end

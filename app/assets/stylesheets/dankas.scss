@@ -1,0 +1,26 @@
+// Place all the styles related to the dankas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.owner{
+  padding-bottom: 7rem;
+}
+.o-header h1{
+  display: inline;
+}
+
+.o-list, .o-pastlist{
+  font-size: 1.2rem;
+}
+.oo{
+  float: left;
+  margin-right: 3rem;
+}
+.line{
+  padding-bottom: 3px;
+  border-bottom: 3px solid #808080;
+  display: inline-block;
+}
+.ii{
+  float: left;
+  margin-right: 1rem;
+}

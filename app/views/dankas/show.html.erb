@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>檀家名簿</title>
+    </head>
+    <body>
+      <header>
+
+      </header>
+      <main>
+        <div class="owner">
+          <div class="o-header mb-5">
+            <h1 class="pl-3 pt-5">檀家詳細</h1>
+            <div class="float-right pr-4 mt-3">
+              <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/dankas/#{@danka.id}/edit") %> </div>
+              <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/dankas/#{@danka.id}/destroy",{method:"post"}) %> </div>
+            </div>
+          </div>
+          <div class="o-list">
+            <div class="container">
+              <section>
+                <div class="">
+                  <span class="o-name line">
+                    <span class="mr-1">No. </span><span><%= @danka.id %></span>
+                    <span class="mr-2 ml-5">施主名:</span> <span><ruby><rb> <%= @danka.name %><rt><%= @danka.subname %></ruby></span>
+                  </span>
+                </div>
+              </section>
+              <section>
+                <div class="oo">
+                  <div class="line">
+                    <span>郵便番号：</span>
+                    <span><%= @danka.postal %></span>
+                  </div>
+                </div>
+                <div class="oo">
+                  <div class="line">
+                    <span>住所：</span>
+                    <span><%= @danka.addless %></span>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="line">
+                    <span>住所２：</span>
+                    <span><%= @danka.addless2 %></span>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <div class="oo">
+                  <div class="line">
+                    <span>電話番号：</span>
+                    <span><%= @danka.tel %></span>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="line">
+                    <span>メール：</span>
+                    <span><%= @danka.email %></span>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <div class="">
+                  <div class="line">
+                    <span>備考１：</span>
+                    <span><%= @danka.mark1 %></span>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="line">
+                    <span>備考２：</span>
+                    <span><%= @danka.mark2 %></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="past">
+          <div class="o-past">
+            <div class="o-header mb-5">
+              <h1 class="pl-3 pt-5">過去帳</h1>
+              <div class="float-right pr-4 mt-3">
+                <div class="btn btn-warning btn-sm"> <%= link_to("　登録　","/pasts/#{@danka.id}/new") %> </div>
+              </div>
+            </div>
+            <% @pasts.each do |past| %>
+            <div class="o-pastlist">
+              <div class="container">
+                <section class="line">
+                  <div class="ii">
+                    <div class="">
+                      <span>俗名：<%= past.danka_id %><%= past.id %></span>
+                      <span><ruby><rb><%= past.name %><rt><%= past.subname %></ruby></span>
+                    </div>
+                  </div>
+                  <div class="ii">
+                    <div class="">
+                      <span>戒名：<%= @id %></span>
+                      <span><ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></span>
+                    </div>
+                  </div>
+                  <div class="ii">
+                    <div class="">
+                      <span>命日：</span>
+                      <span><%= past.deathday %></span>
+                    </div>
+                  </div>
+                  <div class="ii">
+                    <div class="">
+                      <span>続柄：</span>
+                      <span><%= past.relation %></span>
+                    </div>
+                  </div>
+                  <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/pasts/#{past.id}/edit",{method:"post"}) %> </div>
+                  <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/pasts/#{past.id}/destroy",{method:"post"}) %> </div>
+                </section>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </main>
+      <footer>
+
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+  </html>

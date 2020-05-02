@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="pastdetail.css">
+    <title>過去帳</title>
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main>
+      <div class="container mt-3">
+        <span class="main-title h1">新蓮生</span>
+      </div>
+      <div class="container">
+        <%= form_tag("/pasts/create") do %>
+        <form>
+          <div class="form-check d-inline-block">
+            <input class="form-check-input" type="checkbox" id="check1" name="check">
+            <label class="form-check-label" for="check1"></label>
+          </div>
+
+          <div class="" name="danka_id">
+            <% @params %>
+          </div>
+
+          <div class="hide">
+            <label for="inputenum">享年</label>
+            <input type="number" class="form-control" id="inputemail" name="danka_id" value="<%= @params %>">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4 col-lg-3 col-8">
+              <label for="inputsubname">フリガナ</label>
+              <input type="text" class="form-control" id="inputsubname" name="subname">
+            </div>
+            <div class="form-group col-md-5 col-lg-4 col-8">
+              <label for="inputname">俗名</label>
+              <input type="text" class="form-control" id="inputname" name="name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-5 col-lg-4 col-8">
+              <label for="inputsubname">フリガナ</label>
+              <input type="text" class="form-control" id="inputsubname" name="subpenname">
+            </div>
+            <div class="form-group col-md-6 col-lg-5 col-8">
+              <label for="inputname">戒名</label>
+              <input type="text" class="form-control" id="inputname" name="penname">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6 col-md-4">
+              <label for="inputtel">命日</label>
+              <input type="date" class="form-control" id="inputtel" name="deathday">
+            </div>
+            <div class="form-group col-2 col-md-2 col-lg-1">
+              <label for="inputemail">享年</label>
+              <input type="number" class="form-control" id="inputemail" name="deathage">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6 col-md-4">
+              <label for="inputtel">生年月日</label>
+              <input type="date" class="form-control" id="inputtel" name="birthday">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4 col-lg-3 col-8">
+              <label for="inputsubname">葬儀の施主</label>
+              <input type="text" class="form-control" id="inputsubname" name="funeral">
+            </div>
+            <div class="form-group col-md-5 col-lg-4 col-8">
+              <label for="inputname">施主との続柄</label>
+              <input type="text" class="form-control" id="inputname" name="relation">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputAddress1">備考1</label>
+            <input type="text" class="form-control" id="inputAddress1" name="mark1">
+          </div>
+
+          <div class="form-group">
+            <label for="textarea1">備考2</label>
+            <textarea class="form-control" id="textarea1" rows="3" name="mark2"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">　登録　</button>
+
+
+        </form>
+        <% end %>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

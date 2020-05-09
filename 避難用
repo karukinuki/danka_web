@@ -1,72 +1,128 @@
-<% @pasts.each do |past| %>
-<div class="o-pastlist">
-  <div class="container">
-    <section class="line">
-      <div class="ii">
-        <div class="">
-          <span>俗名：<%= past.danka_id %><%= past.id %></span>
-          <span><ruby><rb><%= past.name %><rt><%= past.subname %></ruby></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>戒名：<%= @id %></span>
-          <span><ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>命日：</span>
-          <span><%= past.deathday %></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>続柄：</span>
-          <span><%= past.relation %></span>
-        </div>
-      </div>
-    </section>
+入力フォーム　旧型
+<%= form_tag("/pasts/create") do %>
+<form>
+  <div class="form-check d-inline-block">
+    <input class="form-check-input" type="checkbox" id="check1" name="check">
+    <label class="form-check-label" for="check1"></label>
   </div>
-</div>
+
+  <div class="" name="danka_id">
+    <% @params %>
+  </div>
+
+  <div class="hide">
+    <label for="inputenum">享年</label>
+    <input type="number" class="form-control" id="inputemail" name="danka_id" value="<%= @params %>">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4 col-lg-3 col-8">
+      <label for="inputsubname">フリガナ</label>
+      <input type="text" class="form-control" id="inputsubname" name="subname">
+    </div>
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputname">俗名</label>
+      <input type="text" class="form-control" id="inputname" name="name">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputsubname">フリガナ</label>
+      <input type="text" class="form-control" id="inputsubname" name="subpenname">
+    </div>
+    <div class="form-group col-md-6 col-lg-5 col-8">
+      <label for="inputname">戒名</label>
+      <input type="text" class="form-control" id="inputname" name="penname">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-6 col-md-4">
+      <label for="inputtel">命日</label>
+      <input type="date" class="form-control" id="inputtel" name="deathday">
+    </div>
+    <div class="form-group col-2 col-md-2 col-lg-1">
+      <label for="inputemail">享年</label>
+      <input type="number" class="form-control" id="inputemail" name="deathage">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-6 col-md-4">
+      <label for="inputtel">生年月日</label>
+      <input type="date" class="form-control" id="inputtel" name="birthday">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4 col-lg-3 col-8">
+      <label for="inputsubname">葬儀の施主</label>
+      <input type="text" class="form-control" id="inputsubname" name="funeral">
+    </div>
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputname">施主との続柄</label>
+      <input type="text" class="form-control" id="inputname" name="relation">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputAddress1">備考1</label>
+    <input type="text" class="form-control" id="inputAddress1" name="mark1">
+  </div>
+
+  <div class="form-group">
+    <label for="textarea1">備考2</label>
+    <textarea class="form-control" id="textarea1" rows="3" name="mark2"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">　登録　</button>
+
+
+</form>
 <% end %>
 
-旧型
-<div class="o-pastlist">
-  <div class="container">
-    <section class="line">
-      <div class="ii">
-        <div class="">
-          <span>俗名：</span>
-          <span><ruby><rb><%= @pasts.name %><rt><%= @pasts.subname %></ruby></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>戒名：</span>
-          <span><ruby><rb><%= @pasts.penname %><rt><%= @pasts.subpenname %></ruby></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>命日：</span>
-          <span><%= @pasts.deathday %></span>
-        </div>
-      </div>
-      <div class="ii">
-        <div class="">
-          <span>続柄：</span>
-          <span><%= @pasts.relation %></span>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
 
-いらないかも
-@danka=Danka.find_by(params[:id])
-@edit=@danka.check:params[:check]
-(check:params[:check],subname:params[:subname],name:params[:name],postal:params[:postal],addless:params[:addless],
-  addless2:params[:addless2],tel:params[:tel],email:params[:email],mark1:params[:mark1],mark2:params[:mark2])
+<% end %>
+
+旧型　pastコントローラー
+def create
+  @past=Past.new(danka_id:params[:danka_id],check:params[:check],subname:params[:subname],name:params[:name],
+    subpenname:params[:subpenname],penname:params[:penname],deathday:params[:deathday],deathage:params[:deathage],
+    birthday:params[:birthday],relation:params[:relation],mark1:params[:mark1],mark2:params[:mark2])
+  @past.save
+  danka_id=params[:danka_id]
+  redirect_to("/dankas/#{danka_id}")
+end
+旧型　dankasコントローラーのcreate
+@danka=Danka.find_by(id:params[:id])
+@danka.check=params[:check]
+@danka.subname=params[:subname]
+@danka.name=params[:name]
+@danka.postal=params[:postal]
+@danka.addless=params[:addless]
+@danka.addless2=params[:addless2]
+@danka.tel=params[:tel]
+@danka.email=params[:email]
+@danka.mark1=params[:mark1]
+@danka.mark2=params[:mark2]
 @danka.save
 redirect_to("/dankas/#{params[:id]}")
+
+ルート
+
+  root "dankas#index"
+  get 'pasts/index'=>"pasts#index"
+  get 'pasts/edit'
+  post 'pasts/create'=>'pasts#create'
+  get 'pasts/:id/new'=>'pasts#new'
+  post 'pasts/:id/edit'=>"pasts#edit"
+  post 'pasts/:id/destroy'=>'pasts#destroy'
+
+  get 'dankas/index'=>"dankas#index"
+  get 'dankas/new'=>"dankas#new"
+  get 'dankas/:id/edit'=>"dankas#edit"
+  post 'dankas/create'
+  get 'dankas/:id'=>'dankas#show'
+  post 'dankas/:id/update'=>"dankas#update"
+  post 'dankas/:id/destroy'=>'dankas#destroy'

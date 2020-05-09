@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  
+  root "dankas#index"
   get 'pasts/index'=>"pasts#index"
   get 'pasts/edit'
   post 'pasts/create'=>'pasts#create'
@@ -7,11 +10,13 @@ Rails.application.routes.draw do
   post 'pasts/:id/destroy'=>'pasts#destroy'
 
   get 'dankas/index'=>"dankas#index"
-  get 'dankas/new'
+  get 'dankas/new'=>"dankas#new"
   get 'dankas/:id/edit'=>"dankas#edit"
   post 'dankas/create'
   get 'dankas/:id'=>'dankas#show'
   post 'dankas/:id/update'=>"dankas#update"
   post 'dankas/:id/destroy'=>'dankas#destroy'
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

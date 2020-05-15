@@ -1,6 +1,7 @@
 class DankasController < ApplicationController
   def index
-    @dankas = Danka.all
+    @q = Danka.ransack(params[:q])
+    @dankas = @q.result
   end
 
   def new
@@ -19,22 +20,23 @@ class DankasController < ApplicationController
   def create
     @danka = Danka.new(danka_params)
     if @danka.save
-      redirect_to("/dankas/index")
+      redirect_to danka_path(@danka.id)
     else
       render :new
     end
   end
 
   def update
-    @danka = Danka.find_by(params[:id])
+    @danka = Danka.find_by(id:params[:id])
     @danka.update(danka_params)
+    redirect_to @danka
   end
 
   def destroy
     @danka = Danka.find_by(id:params[:id])
     @danka.destroy
 
-    redirect_to("/dankas/index")
+    redirect_to("/dankas")
   end
 
 

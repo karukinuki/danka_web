@@ -1,3 +1,88 @@
+入力ホーム　旧型　過去町
+<%= form_tag("/pasts/update") do %>
+<form>
+  <div class="form-check d-inline-block">
+    <input class="form-check-input" type="checkbox" id="check1" name="check">
+    <label class="form-check-label" for="check1"></label>
+  </div>
+
+  <div class="" name="danka_id">
+    <% @params %>
+  </div>
+
+  <div class="hide">
+    <label for="inputenum">享年</label>
+    <input type="number" class="form-control" id="inputemail" name="danka_id" value="<%= @params %>">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4 col-lg-3 col-8">
+      <label for="inputsubname">フリガナ</label>
+      <input type="text" class="form-control" id="inputsubname" name="subname">
+    </div>
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputname">俗名</label>
+      <input type="text" class="form-control" id="inputname" name="name">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputsubname">フリガナ</label>
+      <input type="text" class="form-control" id="inputsubname" name="subpenname">
+    </div>
+    <div class="form-group col-md-6 col-lg-5 col-8">
+      <label for="inputname">戒名</label>
+      <input type="text" class="form-control" id="inputname" name="penname">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-6 col-md-4">
+      <label for="inputtel">命日</label>
+      <input type="date" class="form-control" id="inputtel" name="deathday">
+    </div>
+    <div class="form-group col-2 col-md-2 col-lg-1">
+      <label for="inputemail">享年</label>
+      <input type="number" class="form-control" id="inputemail" name="deathage">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-6 col-md-4">
+      <label for="inputtel">生年月日</label>
+      <input type="date" class="form-control" id="inputtel" name="birthday">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4 col-lg-3 col-8">
+      <label for="inputsubname">葬儀の施主</label>
+      <input type="text" class="form-control" id="inputsubname" name="funeral">
+    </div>
+    <div class="form-group col-md-5 col-lg-4 col-8">
+      <label for="inputname">施主との続柄</label>
+      <input type="text" class="form-control" id="inputname" name="relation">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputAddress1">備考1</label>
+    <input type="text" class="form-control" id="inputAddress1" name="mark1">
+  </div>
+
+  <div class="form-group">
+    <label for="textarea1">備考2</label>
+    <textarea class="form-control" id="textarea1" rows="3" name="mark2"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">　登録　</button>
+
+
+</form>
+<% end %>
+
+
 入力フォーム　旧型
 <%= form_tag("/pasts/create") do %>
 <form>
@@ -124,5 +209,5 @@ redirect_to("/dankas/#{params[:id]}")
   get 'dankas/:id/edit'=>"dankas#edit"
   post 'dankas/create'
   get 'dankas/:id'=>'dankas#show'
-  post 'dankas/:id/update'=>"dankas#update"
+  put 'dankas/:id'=>"dankas#update"
   post 'dankas/:id/destroy'=>'dankas#destroy'

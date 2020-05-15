@@ -4,7 +4,7 @@
             <h1 class="pl-3 pt-5">檀家詳細</h1>
             <div class="float-right pr-4 mt-3">
               <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/dankas/#{@danka.id}/edit") %> </div>
-              <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/dankas/#{@danka.id}/destroy",{method:"post"}) %> </div>
+              <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/dankas/#{@danka.id}",{method:"delete"}) %> </div>
             </div>
           </div>
           <div class="o-list">
@@ -105,8 +105,8 @@
                       <span><%= past.relation %></span>
                     </div>
                   </div>
-                  <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/pasts/#{past.id}/edit",{method:"post"}) %> </div>
-                  <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/pasts/#{past.id}/destroy",{method:"post"}) %> </div>
+                  <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/pasts/#{past.id}/edit") %> </div>
+                  <div class="btn btn-danger btn-sm"> <%= link_to("　削除　","/pasts/#{past.id}",{method:"delete"}) %> </div>
                 </section>
               </div>
             </div>

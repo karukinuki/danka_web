@@ -9,6 +9,8 @@ class PastsController < ApplicationController
   end
 
   def edit
+    @past = Past.find_by(id:params[:id])
+    @params = params[:id]
   end
 
   def create
@@ -23,28 +25,18 @@ class PastsController < ApplicationController
 
 
   def update
-    @past=Past.find_by(id:params[:id])
-    @past.check=params[:check]
-    @past.subname=params[:subname]
-    @past.name=params[:name]
-    @past.subpenname=params[:subpenname]
-    @past.penname=params[:penname]
-    @past.deathday=params[:deathday]
-    @past.deathage=params[:deathage]
-    @past.birthday=params[:birthday]
-    @past.relation=params[:relation]
-    @past.mark1=params[:mark1]
-    @past.mark2=params[:mark2]
-    @past.save
-
+    @past = Past.find_by(id:params[:id])
+    @past.update(past_params)
     redirect_to("/dankas/#{@past.danka_id}")
   end
 
   def destroy
+    @past = Past.find_by(id:params[:id])
+    @past.destroy
 
-
-    redirect_to("/dankas/#{params[:id]}")
+    redirect_to("/dankas/#{@past.danka_id}")
   end
+
 
 
   private

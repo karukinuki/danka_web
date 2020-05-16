@@ -13,7 +13,7 @@ class DankasController < ApplicationController
   end
 
   def show
-    @danka = Danka.find_by(id: params[:id])
+    @danka = Danka.find(params[:id])
     @pasts = Past.where(danka_id:params[:id])
   end
 
@@ -27,13 +27,13 @@ class DankasController < ApplicationController
   end
 
   def update
-    @danka = Danka.find_by(id:params[:id])
+    @danka = Danka.find(params[:id])
     @danka.update(danka_params)
     redirect_to @danka
   end
 
   def destroy
-    @danka = Danka.find_by(id:params[:id])
+    @danka = Danka.find(params[:id])
     @danka.destroy
 
     redirect_to("/dankas")

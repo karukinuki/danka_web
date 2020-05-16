@@ -1,6 +1,7 @@
 class PastsController < ApplicationController
   def index
-
+    @q = Past.ransack(params[:q])
+    @pasts = @q.result
   end
 
   def new
@@ -9,7 +10,7 @@ class PastsController < ApplicationController
   end
 
   def edit
-    @past = Past.find_by(id:params[:id])
+    @past = Past.find(params[:id])
     @params = params[:id]
   end
 
@@ -25,13 +26,13 @@ class PastsController < ApplicationController
 
 
   def update
-    @past = Past.find_by(id:params[:id])
+    @past = Past.find(params[:id])
     @past.update(past_params)
     redirect_to("/dankas/#{@past.danka_id}")
   end
 
   def destroy
-    @past = Past.find_by(id:params[:id])
+    @past = Past.find(params[:id])
     @past.destroy
 
     redirect_to("/dankas/#{@past.danka_id}")

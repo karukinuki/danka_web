@@ -1,68 +1,48 @@
 
     <main>
+      <div class="">
+        <h1 class="pl-3 pt-3">檀家名簿</h1>
+        <div class=" my-1 serch-form right float-right">
+          <%= search_form_for @q do |f| %>
+            <%= f.label :name_or_addless_cont,"檀家名" %>
+            <%= f.search_field :name_or_addless_cont %>
 
-        <div class="c-head">
-          <nav class="navbar navbar-expand navbar-dark bg-light m-3">
-            <ul class="navbar-nav mr-auto s-big">
-              <li class="nav-item">
-                <div class="nav-link badge badge-info">
-                  <%= link_to("檀家名簿",dankas_path) %>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="nav-link badge badge-info ml-2">
-                  <%= link_to("過去帳",pasts_path) %>
-                </div>
-              </li>
-            </ul>
-
-
-            <div class="border my-1 justify-content-end">
-              <%= search_form_for @q do |f| %>
-                <%= f.label :name_or_addless_cont, "Keyword" %>
-                <%= f.search_field :name_or_addless_cont %>
-
-                <%= f.submit "検索" %>
-              <% end %>
-            </div>
-
-          </nav>
-            <div class="dropdown m-4">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                並べ替え
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">あ行</a>
-                <a class="dropdown-item" href="#">か行</a>
-                <a class="dropdown-item" href="#">さ行</a>
-              </div>
-            </div>
-            <span class="btn btn-warning"><%= link_to("登録","/dankas/new")%></span>
-
+            <%= f.submit "検索" %>
+          <% end %>
         </div>
-
-          <div class="container-fluid c-table">
-            <table class="table table-striped border">
-              <thead>
-                <tr class="text-nowrap">
-                  <th scope="col">#</th>
-                  <th scope="col">フリガナ</th>
-                  <th scope="col">檀家名</th>
-                  <th scope="col">住所</th>
-                  <th scope="col">電話</th>
-                </tr>
-              </thead>
-              <% @dankas.each do |danka| %>
-                <tbody>
-                  <tr>
-                    <th scope="row"><%= danka.id %></th>
-                    <td><%= danka.subname %></td>
-                    <td class="text-nowrap"><%= link_to(danka.name,danka_path(danka)) %></td>
-                    <td><%= danka.addless %></td>
-                    <td><%= danka.tel %></td>
-                  </tr>
-                </tbody>
-              <% end %>
-            </table>
-          </div>
+        <span class="btn btn-warning"><%= link_to("檀家登録","/dankas/new")%></span>
+      </div>
+      <div class="container-fluid c-table">
+        <table class="table table-striped border">
+          <thead>
+            <tr class="text-nowrap">
+              <th scope="col">#</th>
+              <th scope="col">檀家名</th>
+              <th scope="col">郵便番号</th>
+              <th scope="col">住所</th>
+              <th scope="col">電話番号</th>
+            </tr>
+          </thead>
+          <% @dankas.each do |danka| %>
+            <tbody>
+              <tr>
+                <th scope="row"><%= danka.id %></th>
+                <td class="text-nowrap">
+                  <%= link_to danka_path(danka) do %>
+                    <ruby>
+                    <rb>
+                      <%= danka.name%>
+                    <rt>
+                      <%= danka.subname %>
+                    </ruby>
+                  <% end %>
+                </td>
+                  <td><%= danka.postal %></td>
+                <td><%= danka.addless %></td>
+                <td><%= danka.tel %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
       </main>

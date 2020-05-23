@@ -16,6 +16,15 @@
 .hide{
   display: none;
 }
+.ss-big{
+  font-size: 1.2rem;
+}
 .s-big{
   font-size: 2rem;
+}
+.right{
+  text-align: right;
+}
+.serch-form{
+  margin-right: 3%;
 }

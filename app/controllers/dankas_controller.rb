@@ -15,6 +15,7 @@ class DankasController < ApplicationController
   def show
     @danka = Danka.find(params[:id])
     @pasts = Past.where(danka_id:params[:id])
+    @zero = 0
   end
 
   def create

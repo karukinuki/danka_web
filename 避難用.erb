@@ -1,3 +1,8 @@
+-------------------------------------<>---------------------------------------
+
+-------------------------------------<終わり>---------------------------------------
+
+-------------------------------------<入力ホーム　旧型　過去町>---------------------------------------
 入力ホーム　旧型　過去町
 <%= form_tag("/pasts/update") do %>
 <form>
@@ -81,8 +86,8 @@
 
 </form>
 <% end %>
-
-
+-------------------------------------<終わり>---------------------------------------
+-------------------------------------<入力フォーム　旧型>---------------------------------------
 入力フォーム　旧型
 <%= form_tag("/pasts/create") do %>
 <form>
@@ -90,16 +95,13 @@
     <input class="form-check-input" type="checkbox" id="check1" name="check">
     <label class="form-check-label" for="check1"></label>
   </div>
-
   <div class="" name="danka_id">
     <% @params %>
   </div>
-
   <div class="hide">
     <label for="inputenum">享年</label>
     <input type="number" class="form-control" id="inputemail" name="danka_id" value="<%= @params %>">
   </div>
-
   <div class="form-row">
     <div class="form-group col-md-4 col-lg-3 col-8">
       <label for="inputsubname">フリガナ</label>
@@ -110,7 +112,6 @@
       <input type="text" class="form-control" id="inputname" name="name">
     </div>
   </div>
-
   <div class="form-row">
     <div class="form-group col-md-5 col-lg-4 col-8">
       <label for="inputsubname">フリガナ</label>
@@ -121,7 +122,6 @@
       <input type="text" class="form-control" id="inputname" name="penname">
     </div>
   </div>
-
   <div class="form-row">
     <div class="form-group col-6 col-md-4">
       <label for="inputtel">命日</label>
@@ -132,14 +132,12 @@
       <input type="number" class="form-control" id="inputemail" name="deathage">
     </div>
   </div>
-
   <div class="form-row">
     <div class="form-group col-6 col-md-4">
       <label for="inputtel">生年月日</label>
       <input type="date" class="form-control" id="inputtel" name="birthday">
     </div>
   </div>
-
   <div class="form-row">
     <div class="form-group col-md-4 col-lg-3 col-8">
       <label for="inputsubname">葬儀の施主</label>
@@ -150,64 +148,71 @@
       <input type="text" class="form-control" id="inputname" name="relation">
     </div>
   </div>
-
   <div class="form-group">
     <label for="inputAddress1">備考1</label>
     <input type="text" class="form-control" id="inputAddress1" name="mark1">
   </div>
-
   <div class="form-group">
     <label for="textarea1">備考2</label>
     <textarea class="form-control" id="textarea1" rows="3" name="mark2"></textarea>
   </div>
-
   <button type="submit" class="btn btn-primary">　登録　</button>
-
-
 </form>
 <% end %>
+-------------------------------------<終わり>---------------------------------------
 
+-------------------------------------<旧型　檀家名簿ナビバー>---------------------------------------
+<div class="c-head">
+  <nav class="navbar navbar-expand navbar-dark bg-light m-3">
+    <ul class="navbar-nav mr-auto s-big">
+      <li class="nav-item">
+        <div class="nav-link badge badge-info">
+          <%= link_to("檀家名簿",dankas_path) %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link badge badge-info ml-2">
+          <%= link_to("過去帳",pasts_path) %>
+        </div>
+      </li>
+    </ul>
+    <div class=" my-1 justify-content-end">
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name_or_addless_cont,"檀家名" %>
+        <%= f.search_field :name_or_addless_cont %>
 
-<% end %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </nav>
+    <span class="btn btn-warning"><%= link_to("登録","/dankas/new")%></span>
+</div>
+-------------------------------------<終わり>---------------------------------------
 
-旧型　pastコントローラー
-def create
-  @past=Past.new(danka_id:params[:danka_id],check:params[:check],subname:params[:subname],name:params[:name],
-    subpenname:params[:subpenname],penname:params[:penname],deathday:params[:deathday],deathage:params[:deathage],
-    birthday:params[:birthday],relation:params[:relation],mark1:params[:mark1],mark2:params[:mark2])
-  @past.save
-  danka_id=params[:danka_id]
-  redirect_to("/dankas/#{danka_id}")
-end
-旧型　dankasコントローラーのcreate
-@danka=Danka.find_by(id:params[:id])
-@danka.check=params[:check]
-@danka.subname=params[:subname]
-@danka.name=params[:name]
-@danka.postal=params[:postal]
-@danka.addless=params[:addless]
-@danka.addless2=params[:addless2]
-@danka.tel=params[:tel]
-@danka.email=params[:email]
-@danka.mark1=params[:mark1]
-@danka.mark2=params[:mark2]
-@danka.save
-redirect_to("/dankas/#{params[:id]}")
-
-ルート
-
-  root "dankas#index"
-  get 'pasts/index'=>"pasts#index"
-  get 'pasts/edit'
-  post 'pasts/create'=>'pasts#create'
-  get 'pasts/:id/new'=>'pasts#new'
-  post 'pasts/:id/edit'=>"pasts#edit"
-  post 'pasts/:id/destroy'=>'pasts#destroy'
-
-  get 'dankas/index'=>"dankas#index"
-  get 'dankas/new'=>"dankas#new"
-  get 'dankas/:id/edit'=>"dankas#edit"
-  post 'dankas/create'
-  get 'dankas/:id'=>'dankas#show'
-  put 'dankas/:id'=>"dankas#update"
-  post 'dankas/:id/destroy'=>'dankas#destroy'
+-------------------------------------<過去帳旧型ナビバー>---------------------------------------
+<div class="c-head">
+  <nav class="navbar navbar-expand navbar-dark bg-light m-3">
+    <ul class="navbar-nav mr-auto s-big">
+      <li class="nav-item">
+        <div class="nav-link badge badge-info">
+          <%= link_to("檀家名簿",dankas_path) %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link badge badge-info ml-2">
+          <%= link_to("過去帳",pasts_path) %>
+        </div>
+      </li>
+    </ul>
+    <div class="my-1 justify-content-end">
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name_or_penname_cont, "過去帳" %>
+        <%= f.search_field :name_or_penname_cont %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </nav>
+  <%= select_tag(:year, options_for_select([["2015","2015"],["2016","2016"],["2017","2017"],["2018","2018"]])) %>
+  <%= submit_tag "絞り込み" %>
+</div>
+-------------------------------------<終わり>---------------------------------------

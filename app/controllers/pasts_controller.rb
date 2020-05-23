@@ -6,7 +6,10 @@ class PastsController < ApplicationController
 
   def new
     @past = Past.new
-    @params=params[:id]
+    @params=params[:danka_id]
+    puts "----------------------------------------------"
+    puts params[:danka_id]
+    puts "----------------------------------------------"
   end
 
   def edit
@@ -38,7 +41,23 @@ class PastsController < ApplicationController
     redirect_to("/dankas/#{@past.danka_id}")
   end
 
+  def kaiki
+    puts "-----------------------------"
+    puts params[:past_id]
+    puts "============================="
+    @past = Past.find_by(danka_id:params[:id])
 
+    respond_to do |format|
+      format.html { redirect_to kaiki_past_path(format: :pdf, debug: 1) }
+      format.pdf do
+        render pdf: "kaiki",
+        encoding: "UTF-8",
+        layout: "pdf.html",
+        show_as_html: params[:debug].present?
+
+      end
+    end
+  end
 
   private
     def past_params

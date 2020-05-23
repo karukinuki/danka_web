@@ -3,8 +3,8 @@
         <span class="main-title h1">新蓮生</span>
       </div>
       <div class="container">
-        <%= form_for(@past, url: {controller: 'pasts', action: 'create' }) do |f| %>
-          <div class="form-check d-inline-block">
+        <%= form_for(@past) do |f| %>
+          <div class="form-check d-inline-block hide">
             <%= f.label :check,"" %>
             <%= f.check_box :check,class: "" %>
           </div>
@@ -70,6 +70,6 @@
           </div>
           <%= f.submit "　登録　",class: "btn btn-primary" %>
         <% end %>
-        
+
       </div>
     </main>

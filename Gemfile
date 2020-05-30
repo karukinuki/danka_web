@@ -62,5 +62,6 @@ gem 'pry-rails'
 gem 'hirb'
 gem 'hirb-unicode'
 gem 'ransack'
-gem "wkhtmltopdf-binary-11"
+gem "wkhtmltopdf-binary"
 gem "wicked_pdf"
+gem 'devise'

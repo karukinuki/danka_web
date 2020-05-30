@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .kaiki{
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   margin-left: 10rem;
+  height: 794px;
+  width: 1366px;
 }
+
 .k-indent{
   text-indent: 1rem;
 }
@@ -28,4 +33,19 @@
 }
 .k-address{
   margin-top: 1rem;
+}
+.table-last{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+.last-td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 20px;
+  width:200px;
+  margin:0px;
+  padding:0px;
 }

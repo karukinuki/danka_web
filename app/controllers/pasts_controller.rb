@@ -48,13 +48,11 @@ class PastsController < ApplicationController
     @past = Past.find_by(danka_id:params[:id])
 
     respond_to do |format|
-      format.html { redirect_to kaiki_past_path(format: :pdf, debug: 1) }
       format.pdf do
         render pdf: "kaiki",
         encoding: "UTF-8",
-        layout: "pdf.html",
-        show_as_html: params[:debug].present?
-
+        orientation: "Landscape",
+        layout: "pdf.html"
       end
     end
   end

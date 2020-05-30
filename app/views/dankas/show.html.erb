@@ -79,13 +79,13 @@
             </div>
 
 
-            <div class="">
-              <table class="table table-sm table-striped">
+            <div class="mx-5">
+              <table class="table table-sm" style="max-width:100%;">
+                <% @pasts.each_with_index do |past,index| %>
                   <div class="">
                     <tbody>
-                      <% @pasts.each do |past| %>
-                      <tr class="d-no">
-                        <th scope="row"><%= past.id %></th>
+                      <tr class="d-no" style="border-bottom: hidden; border-top: hidden;">
+                        <th scope="row" rowspan="2"><br><%= index+1 %></th>
                         <td>
                           <span>俗名：<ruby><rb><%= past.name %><rt><%= past.subname %></ruby></span><br>
                           <span>享年：<%= past.deathage %></span>
@@ -102,9 +102,6 @@
                           <span>施主との関係：<%= past.relation %></span><br>
                           <span>備考1：<%= past.mark1 %></span>
                         </td>
-                        <td>
-                          <span>備考2：<%= past.mark1 %></span>
-                        </td>
                         <td class="">
                           <%= link_to "/pasts/#{past.id}/edit" do %>
                           <svg class="bottom-list bi bi-tools" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -112,12 +109,22 @@
                             <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
                           </svg>
                           <% end %>
-                          <%= link_to kaiki_past_path(:past_id => past.id) do %>
+                          <br>
+                          <%= link_to kaiki_past_path(:format => :pdf) do %>
                           <svg class="bottom-list bi bi-receipt-cutoff" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v13h-1V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51L2 2.118V15H1V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zM0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
                             <path fill-rule="evenodd" d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-8a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
                           </svg>
                           <% end %>
+                        </td>
+                      </tr>
+                      <tr style="border: none;">
+                        <td colspan="4">
+                          <p class="table-last" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            備考2：<%= past.mark2 %>
+                          </p>
+                        </td>
+                        <td>
                           <%= link_to "/pasts/#{past.id}",{method:"delete"} do %>
                             <svg class="bottom-list bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -126,13 +133,99 @@
                           <% end %>
                         </td>
                       </tr>
-                      <% end %>
+                      <tr>
+
+                      </tr>
                     </tbody>
                   </div>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                      <p>
+                        備考2：<%= past.mark2 %>
+                      </p>
+                    </div>
+                  </div>
+                  <% end %>
               </table>
+
+              <h2>----------------------------------------------------</h2>
+
+              <% @pasts.each_with_index do |past,index| %>
+              <table class="table table-sm" style="border-spacing: 100px;">
+                <tbody>
+                  <tr style="border-top: hidden;">
+                    <th scope="row" rowspan="3"><br><%= index+1 %></th>
+                    <td>俗名：<ruby><rb><%= past.name %><rt><%= past.subname %></ruby></td>
+                    <td>戒名：<ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></td>
+                    <td>生年月日：<%= past.birthday %></td>
+                    <td>施主との関係：<%= past.relation %></td>
+                    <td><i class="far fa-trash-alt"></i></td>
+                  </tr>
+                  <tr style="border: hidden;">
+                    <td>享年：<%= past.deathage %></td>
+                    <td>命日：<%= past.deathday %></td>
+                    <td>葬儀の施主：<%= past.funeral %></td>
+                    <td>備考1：<%= past.mark1 %></td>
+                    <td><i class="far fa-edit"></i></td>
+                  </tr>
+                  <tr style="border-top: hidden;">
+                    <td colspan="4">
+                      <p class="table-last" data-toggle="collapse" href="#mark2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        備考2：<%= past.mark2 %>
+                      </p>
+                    </td>
+                    <td><i class="far fa-copy"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="collapse" id="mark2">
+                <div class="card card-body">
+                  <p>
+                    備考2：<%= past.mark2 %>
+                  </p>
+                </div>
+              </div>
+              <% end %>
             </div>
 
 
+
+            <h1>--------------------------------------------------------------</h1>
+
+            <% @pasts.each_with_index do |past,index| %>
+            <div class="mx-5">
+              <table style="width:100%;" align="left" border="1">
+                <tr>
+                  <th rowspan="3" style="text-align:center;">1</th>
+                  <td>aaa</td>
+                  <td>aaa</td>
+                  <td>aaa</td>
+                  <td>aaa</td>
+                  <td>印刷</td>
+                </tr>
+                <tr>
+                  <td>bbbb</td>
+                  <td>bbbb</td>
+                  <td>bbbb</td>
+                  <td>bbbb</td>
+                  <td>修正</td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <p class="last-td" data-toggle="collapse" href="#ooooo" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                    </p>
+                  </td>
+                  <td>ごみ</td>
+                </tr>
+              </table>
+              <div class="collapse" id="ooooo">
+                <div class="card card-body">
+                  ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                </div>
+              </div>
+            </div>
+            <% end %>
 
 
 

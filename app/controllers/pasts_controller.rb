@@ -52,7 +52,8 @@ class PastsController < ApplicationController
         render pdf: "kaiki",
         encoding: "UTF-8",
         orientation: "Landscape",
-        layout: "pdf.html"
+        layout: "pdf.html",
+        show_as_html: params[:debug].present?
       end
     end
   end

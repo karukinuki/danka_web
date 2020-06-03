@@ -170,7 +170,11 @@
                   </tr>
                   <tr style="border-top: hidden;">
                     <td colspan="4">
-                      <p class="table-last" data-toggle="collapse" href="#mark2" role="button" aria-expanded="false" aria-controls="collapseExample">
+
+                      <% mark = "#mark" + index.to_s %>
+                      <% mark_all_text = "mark" + index.to_s %>
+
+                      <p class="table-last" data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
                         備考2：<%= past.mark2 %>
                       </p>
                     </td>
@@ -178,7 +182,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div class="collapse" id="mark2">
+              <div class="collapse" id=<%= mark_all_text %>>
                 <div class="card card-body">
                   <p>
                     備考2：<%= past.mark2 %>

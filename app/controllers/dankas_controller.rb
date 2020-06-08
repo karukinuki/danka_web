@@ -1,4 +1,6 @@
 class DankasController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @q = Danka.ransack(params[:q])
     @dankas = @q.result
@@ -40,6 +42,13 @@ class DankasController < ApplicationController
     redirect_to("/dankas")
   end
 
+  def confirm
+    @user = User.new(user_params)
+
+    return if @user.valid?
+
+    render :new
+  end
 
   private
     def danka_params

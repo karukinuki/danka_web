@@ -1,7 +1,7 @@
 
     <main>
       <div class="">
-        <h1 class="pl-3 pt-3">檀家名簿</h1>
+        <h1 class="pl-3">檀家名簿</h1>
         <div class=" my-1 serch-form right float-right">
           <%= search_form_for @q do |f| %>
             <%= f.label :name_or_addless_cont,"檀家名" %>
@@ -11,6 +11,7 @@
           <% end %>
         </div>
         <span class="btn btn-warning"><%= link_to("檀家登録","/dankas/new")%></span>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </div>
       <div class="container-fluid c-table">
         <table class="table table-striped border">

@@ -16,10 +16,19 @@
 
   <body>
 
-    <%= render "layouts/header" %>
+
+    <% if user_signed_in? %>
+      <%= render "layouts/header" %>
+    <% end %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <main>
       <%= yield %>
     </main>
+
+
 
     <footer>
     </footer>

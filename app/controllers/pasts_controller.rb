@@ -1,4 +1,6 @@
 class PastsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @q = Past.ransack(params[:q])
     @pasts = @q.result

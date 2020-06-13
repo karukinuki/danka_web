@@ -70,7 +70,7 @@ Rails.application.configure do
     :port => 587,
     :domain => 'smtp.gmail.com',
     :user_name => "karukinuki@gmail.com",
-    :password => "tkfwevhfghswddum",
+    :password => ENV['GMAILPASSWORD'],
     :authentication => "plain"
   }
 

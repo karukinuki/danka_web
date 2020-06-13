@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module DankaWeb
   class Application < Rails::Application
+    config.i18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -15,5 +16,6 @@ module DankaWeb
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
   end
 end

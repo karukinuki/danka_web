@@ -1,6 +1,7 @@
 
     <main>
       <div class="">
+
         <h1 class="pl-3">檀家名簿</h1>
         <div class=" my-1 serch-form right float-right">
           <%= search_form_for @q do |f| %>
@@ -45,5 +46,20 @@
             </tbody>
           <% end %>
         </table>
+        <h2 class="foo">kachibito</h2>
       </div>
       </main>
+      <script>
+        $('.foo').children().andSelf().contents().each(function() {
+            if (this.nodeType == 3) {
+                $(this).replaceWith($(this).text().replace(/(\w)/g, "<span class='char'>$&</span>"));
+            }
+        });
+
+        $('.foo').each(function() {
+            $('span.char', this).each(function(i) {
+                i = i+1;
+                $(this).addClass('char' + i);
+            });
+        });
+      </script>

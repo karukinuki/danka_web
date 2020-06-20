@@ -20,6 +20,9 @@ class PastsController < ApplicationController
   end
 
   def create
+    puts "----------------------------------------------"
+    puts params
+    puts "----------------------------------------------"
     @past=Past.new(past_params)
     danka_id=@past.danka_id
     if @past.save

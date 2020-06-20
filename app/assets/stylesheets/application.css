@@ -25,9 +25,16 @@
 .right{
   text-align: right;
 }
+.a-center{
+  text-align: center;
+}
+.m-center{
+  margin: 0 auto;
+}
 .serch-form{
   margin-right: 3%;
 }
+
 
 .foo span{display:inline-block;}
 .foo .char1  {color:red;}

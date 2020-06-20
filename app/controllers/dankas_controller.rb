@@ -1,5 +1,14 @@
 class DankasController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :home
+
+  def home
+    if user_signed_in?
+      @user = User.find(current_user.id)
+      puts "------------"
+      puts User.name
+      puts "------------"
+    end
+  end
 
   def index
     @q = Danka.ransack(params[:q])
@@ -8,6 +17,13 @@ class DankasController < ApplicationController
 
   def new
     @danka = Danka.new
+  end
+
+  def confirm
+    @danka = Danka.new(danka_params)
+    if @danka.invalid?
+      render :new
+    end
   end
 
   def edit
@@ -22,7 +38,9 @@ class DankasController < ApplicationController
 
   def create
     @danka = Danka.new(danka_params)
-    if @danka.save
+    if params[:back]
+      render :new
+    elsif @danka.save
       redirect_to danka_path(@danka.id)
     else
       render :new
@@ -40,14 +58,6 @@ class DankasController < ApplicationController
     @danka.destroy
 
     redirect_to("/dankas")
-  end
-
-  def confirm
-    @user = User.new(user_params)
-
-    return if @user.valid?
-
-    render :new
   end
 
   private

@@ -3,7 +3,8 @@
         <span class="main-title h1">基本情報</span>
       </div>
       <div class="container">
-        <%= form_for(@danka,, url: {controller: 'dankas', action: 'confirm' }) do |f| %>
+
+        <%= form_for @danka,url: confirm_dankas_path do |f| %>
             <div class="form-check d-inline-block hide">
               <%= f.label :check,"" %>
               <%= f.check_box :check,class: "" %>

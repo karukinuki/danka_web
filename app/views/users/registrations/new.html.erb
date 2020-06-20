@@ -7,6 +7,11 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field input-sm chat-input">
+            <%= f.label :name %> <em>(6文字以内)</em><br />
+            <%= f.text_field :name, autofocus: true, maxlength: "8",class: "form-control" %>
+          </div>
+
+          <div class="field input-sm chat-input">
             <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
           </div>

@@ -1,0 +1,84 @@
+
+
+<div class="container">
+  <%= form_for(@danka) do |f| %>
+    <h1>この内容でよろしいでしょうか？</h1>
+    <table class="table table-bordered">
+
+
+      <div>
+      <strong>名前</strong>
+      <p>
+        <%= f.hidden_field :name %>
+        <%= @danka.name %>
+      </p>
+    </div>
+
+      <tbody>
+        <tr>
+          <th scope="row">施主</th>
+          <td>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :subname %>
+            <span><ruby><rb> <%= @danka.name %><rt><%= @danka.subname %></ruby></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">郵便番号</th>
+          <td>
+            <%= f.hidden_field :postal %>
+            <span><%= @danka.postal %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">住所</th>
+          <td>
+            <%= f.hidden_field :addless %>
+            <span><%= @danka.addless %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">住所2</th>
+          <td>
+            <%= f.hidden_field :addless2 %>
+            <span><%= @danka.addless2 %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">電話番号</th>
+          <td>
+            <%= f.hidden_field :tel %>
+            <span><%= @danka.tel %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">メールアドレス</th>
+          <td>
+            <%= f.hidden_field :email %>
+            <span><%= @danka.email %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">備考1</th>
+          <td>
+            <%= f.hidden_field :mark1 %>
+            <span><%= @danka.mark1 %></span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">備考2</th>
+          <td>
+            <%= f.hidden_field :mark2 %>
+            <span><%= @danka.mark2 %></span>
+          </td>
+        </tr>
+
+
+        <div class="actions">
+          <%= f.submit '投稿画面に戻る',name: 'back'%>
+        </div>
+        <div class="actions">
+          <%= f.submit '投稿する' %>
+        </div>
+      <% end %>
+    </div>

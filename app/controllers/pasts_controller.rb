@@ -59,6 +59,7 @@ class PastsController < ApplicationController
         orientation: "Landscape",
         layout: "pdf.html",
         show_as_html: params[:debug].present?
+        
       end
     end
   end

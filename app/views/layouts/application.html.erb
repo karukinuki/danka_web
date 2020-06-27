@@ -16,23 +16,34 @@
   </head>
 
   <body>
+    <div id="wrapper">
+      <% if user_signed_in? %>
+        <%= render "layouts/header" %>
+      <% end %>
 
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <% if user_signed_in? %>
-      <%= render "layouts/header" %>
-    <% end %>
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <%= msg.html_safe %>
+        </div>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <main>
+        <%= yield %>
+      </main>
 
-    <main>
-      <%= yield %>
-    </main>
-
-
-
-    <footer>
-    </footer>
+      <% if user_signed_in? %>
+        <footer style="text-align: center" class="py-3">
+          © 2020 danka_web
+        </footer>
+      <% elsif %>
+        <footer style="text-align: center" class="py-3">
+          © 2020 danka_web
+        </footer>
+      <% end %>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "dankas#home"
 
   devise_for :users
+  
 
   resources :pasts do
     member do

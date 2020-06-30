@@ -48,6 +48,12 @@ class PastsController < ApplicationController
 
   def kaiki
     @past = Past.find_by(danka_id:params[:id])
+    puts "----------------------"
+    puts @current = Time.current.year
+    puts "----------------------"
+    @death = @past.deathday.year
+
+
 
     respond_to do |format|
       format.pdf do
@@ -58,10 +64,6 @@ class PastsController < ApplicationController
         show_as_html: params[:debug].present?
       end
     end
-
-    @current = Time.current.year
-    @death = @past.deathday.year
-
   end
 
   private

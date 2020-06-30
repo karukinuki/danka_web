@@ -19,7 +19,8 @@
           <span><%= Time.current.year %>年</span>
           <span><%= @past.deathday.month %>月<%= @past.deathday.day %>日</span><br>
           <span class="k-big">法名<%= @past.penname %></span><br>
-          <span><%= @past.name %></span>様の
+          <span><%= @current %></span>様の
+
           <span>
             <% if @current - @death == 1 %>
               壱周忌

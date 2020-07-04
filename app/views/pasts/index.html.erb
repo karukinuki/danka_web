@@ -1,3 +1,4 @@
+  <%= stylesheet_link_tag 'pasts' %>
       <main>
         <div class="">
           <h1 class="pl-3 pt-3">過去帳</h1>
@@ -9,45 +10,41 @@
             <% end %>
           </div>
         </div>
-        <div class="container-fluid c-table">
-          <table class="table table-striped border">
-            <thead>
-              <tr class="text-nowrap">
-                <th scope="col">#</th>
-                <th scope="col">俗名</th>
-                <th scope="col">戒名</th>
-                <th scope="col">命日</th>
-                <th scope="col">享年</th>
-                <th scope="col">施主との関係</th>
-              </tr>
-            </thead>
+        <div class="past-list">
+          <table class="tbl-r05">
+            <tr class="thead">
+              <th class="t-1">#</th>
+              <th class="t-2">俗名</th>
+              <th class="t-3">戒名</th>
+              <th class="t-4">命日</th>
+              <th class="t-5">享年</th>
+              <th class="t-6">施主との関係</th>
+            </tr>
             <% @pasts.each do |past| %>
-              <tbody>
-                <tr>
-                  <th scope="row"><%= past.id %></th>
-                  <td class="text-nowrap">
-                    <%= link_to danka_path(past.danka_id) do %>
-                      <ruby>
-                      <rb>
-                        <%= past.name%>
-                      <rt>
-                        <%= past.subname %>
-                      </ruby>
-                    <% end %>
-                  </td>
-                  <td>
-                    <ruby>
-                    <rb>
-                      <%= past.penname%>
-                    <rt>
-                      <%= past.subpenname %>
-                    </ruby>
-                  </td>
-                  <td><%= past.deathday %></td>
-                  <td><%= past.deathage %></td>
-                  <td><%= past.relation %></td>
-                </tr>
-              </tbody>
+            <tr>
+              <td>-<%= past.id %>-</td>
+              <td data-label="俗名">
+                <%= link_to danka_path(past.danka_id) do %>
+                  <ruby>
+                  <rb>
+                    <%= past.name%>
+                  <rt>
+                    <%= past.subname %>
+                  </ruby>
+              </td>
+              <td data-label="戒名">
+                <ruby>
+                <rb>
+                  <%= past.penname%>
+                <rt>
+                  <%= past.subpenname %>
+                </ruby>
+                <% end %>
+              </td>
+              <td data-label="命日"><%= past.deathday %></td>
+              <td data-label="生年月日"><%= past.deathage %></td>
+              <td data-label="施主との関係"><%= past.relation %></td>
+            </tr>
             <% end %>
           </table>
         </div>

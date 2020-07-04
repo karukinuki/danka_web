@@ -2,10 +2,13 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>DankaWeb</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -36,7 +39,13 @@
 
       <% if user_signed_in? %>
         <footer style="text-align: center" class="py-3">
-          © 2020 danka_web
+          <div class="textalign-center">
+            <span class="mr-5"><%= link_to "プライバシーポリシー","/home/policy", :style=>"color:#CCCCCC;"%></span>
+            <span class="ml-3"><%= link_to "利用規約","/home/service", :style=>"color:#CCCCCC;"%></span>
+          </div>
+          <div class="copy">
+            © 2020 danka_web
+          </div>
         </footer>
       <% elsif %>
         <footer style="text-align: center" class="py-3">

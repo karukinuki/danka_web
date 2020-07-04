@@ -61,6 +61,8 @@ class PastsController < ApplicationController
         encoding: "UTF-8",
         orientation: "Landscape",
         layout: "pdf.html",
+        template: 'pasts/kaiki',
+        javascript_delay: 3000,
         show_as_html: params[:debug].present?
       end
     end

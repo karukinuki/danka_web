@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'home' %>
+<div class="home mr-5">
+  <div class="">
+    <% if user_signed_in? %>
+      <h1>ようこそ<br><%= @user.name %>さん</h1>
+    <% elsif %>
+      <h1>ようこそ</h1>
+    <% end %>
+  </div>
+  <div class="h-img m-center">
+    <%= image_tag 'logo.png', alt: 'danka_web',class: "img-fluid" %>
+  </div>
+  <div class="h-link mb-5">
+    <%= link_to '/dankas', :style=>"color:#333333;" do %>
+      <i class="fas fa-sign-in-alt fa-5x"></i>
+      <p>はじめる</p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag 'home' %>
+<div class="userpage">
+  <h3>ユーザー情報</h3>
+  <div class="ml-4">
+    <p>ユーザー</p>
+    <span><%= @user.name %></span>
+    <p>メールアドレス</p>
+    <span><%= @user.email %></span>
+  </div>
+  <div class="ml-2">
+    <h4>その他</h4>
+    <div class="ml-3">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
+      <a href="/users/edit">パスワード変更</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+h1{
+  color: red;
+}
+.min-table th{
+  text-align: center;
+}
+.min-table td:before {
+  content: attr(data-label);
+}
+min-table p{
+  display: inline-block;
+}

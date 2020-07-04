@@ -1,6 +1,9 @@
 // Place all the styles related to the dankas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.hide{
+  display: none;
+}
 .span{
   -webkit-text-combine: horizontal;
 }
@@ -36,6 +39,134 @@
 .bottom-list{
   margin-right: 1rem;
 }
-.h-img{
-  width: 30%;
+
+.garlic{
+  display: inline-block;
+  transform: rotate(50deg)
+}
+.tbl-r05 td:first-child{
+  text-align: center;
+}
+@media screen and (min-width: 1050px){
+  .tbl-r05{
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .danka-list{
+    font-size: 1.2rem;
+    line-height: 3rem;
+    width: 100%;
+  }
+  .tbl-r05 th{
+    height: 4rem;
+    border-bottom: 3px solid #BBBBBB;
+  }
+  .tbl-r05 td{
+    height: 4rem;
+    border-bottom: 3px solid #BBBBBB;
+  }
+  .t-1{
+    width: 7%;
+    text-align: center;
+  }
+  .t-2{
+    width: 15%;
+  }
+  .t-3{
+    width: 15%;
+  }
+  .t-4{
+    width: 55%;
+  }
+  .t-5{
+    width: 12%;
+  }
+}
+@media screen and (min-width: 641px)and (max-width: 1049px) {
+  .danka-list{
+    font-size: 1.2rem;
+    line-height: 3rem;
+    width: 100%;
+  }
+  .tbl-r05{
+  margin-right: 2rem;
+  margin-left: 2rem;
+  }
+  .tbl-r05 th{
+    height: 4rem;
+    border-bottom: 3px solid #BBBBBB;
+  }
+  .tbl-r05 td{
+    height: 4rem;
+    border-bottom: 3px solid #BBBBBB;
+  }
+  .t-1{
+    width: 5%;
+  }
+  .t-2{
+    width: 15%;
+  }
+  .t-3{
+    width: 15%;
+  }
+  .t-4{
+    width: 50%;
+  }
+  .t-5{
+    width: 12%;
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .tbl-r05 {
+    width: 100%;
+  }
+  .tbl-r05 .thead {
+    display: none;
+  }
+  .tbl-r05 tr {
+    width: 100%;
+  }
+  .tbl-r05 td {
+    display: block;
+    text-align: right;
+    width: 100%;
+  }
+  .tbl-r05 td:first-child {
+    background: #BBBBBB;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+  }
+  .tbl-r05 td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 900px){
+  .pon{
+    display: none;
+  }
+  .min-table{
+    width: 80%;
+    margin: auto;
+  }
+  .min-table th{
+    text-align: center;
+    border-top: 3px solid #BBBBBB;
+  }
+  .min-table td{
+    border-bottom: 1px solid #BBBBBB;
+    line-height: 2rem;
+  }
+  .min-table td:before {
+    content: attr(data-label);
+  }
+  min-table p{
+    display: inline-block;
+  }
+
 }

@@ -1,138 +1,199 @@
-      <main class="mt-3 mb-5">
-        <div class="owner">
-          <div class="o-header mb-5">
-            <h1 class="pl-3 pt-5">檀家詳細</h1>
-            <div class="float-right pr-4 mt-3">
-              <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/dankas/#{@danka.id}/edit") %> </div>
-              <div class="btn btn-danger btn-sm"> <%= link_to '　削除　', danka_path, method: :delete, data: {confirm: '本当に削除してもよろしいでしょうか？'} %> </div>
+<%= stylesheet_link_tag 'dankas' %>
+  <main class="mt-3 mb-5">
+    <div class="owner">
+      <div class="o-header mb-5">
+        <h1 class="pl-3 pt-5">檀家詳細</h1>
+        <div class="float-right pr-4 mt-3">
+          <div class="btn btn-secondary btn-sm"> <%= link_to("　修正　","/dankas/#{@danka.id}/edit") %> </div>
+          <div class="btn btn-danger btn-sm"> <%= link_to '　削除　', danka_path, method: :delete, data: {confirm: '本当に削除してもよろしいでしょうか？'} %> </div>
+        </div>
+      </div>
+      <div class="o-list">
+        <div class="container">
+          <section>
+            <div class="">
+              <span class="o-name line">
+                <span class="mr-1">No. </span><span><%= @danka.id %></span>
+                <span class="mr-2 ml-5">施主名:</span> <span><ruby><rb> <%= @danka.name %><rt><%= @danka.subname %></ruby></span>
+              </span>
             </div>
-          </div>
-          <div class="o-list">
-            <div class="container">
-              <section>
-                <div class="">
-                  <span class="o-name line">
-                    <span class="mr-1">No. </span><span><%= @danka.id %></span>
-                    <span class="mr-2 ml-5">施主名:</span> <span><ruby><rb> <%= @danka.name %><rt><%= @danka.subname %></ruby></span>
-                  </span>
-                </div>
-              </section>
-              <section>
-                <div class="oo">
-                  <div class="line">
-                    <span>郵便番号：</span>
-                    <span><%= @danka.postal %></span>
-                  </div>
-                </div>
-                <div class="oo">
-                  <div class="line">
-                    <span>住所：</span>
-                    <span><%= @danka.addless %></span>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="line">
-                    <span>住所２：</span>
-                    <span><%= @danka.addless2 %></span>
-                  </div>
-                </div>
-              </section>
-              <section>
-                <div class="oo">
-                  <div class="line">
-                    <span>電話番号：</span>
-                    <span><%= @danka.tel %></span>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="line">
-                    <span>メール：</span>
-                    <span><%= @danka.email %></span>
-                  </div>
-                </div>
-              </section>
-              <section>
-                <div class="">
-                  <div class="line">
-                    <span>備考１：</span>
-                    <span><%= @danka.mark1 %></span>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="line">
-                    <span>備考２：</span>
-                    <span><%= @danka.mark2 %></span>
-                  </div>
-                </div>
-              </section>
+          </section>
+          <section>
+            <div class="oo">
+              <div class="line">
+                <span>郵便番号：</span>
+                <span><%= @danka.postal %></span>
+              </div>
             </div>
+            <div class="oo">
+              <div class="line">
+                <span>住所：</span>
+                <span><%= @danka.addless %></span>
+              </div>
+            </div>
+            <div class="">
+              <div class="line">
+                <span>住所２：</span>
+                <span><%= @danka.addless2 %></span>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="oo">
+              <div class="line">
+                <span>電話番号：</span>
+                <span><%= @danka.tel %></span>
+              </div>
+            </div>
+            <div class="">
+              <div class="line">
+                <span>メール：</span>
+                <span><%= @danka.email %></span>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="">
+              <div class="line">
+                <span>備考１：</span>
+                <span><%= @danka.mark1 %></span>
+              </div>
+            </div>
+            <div class="">
+              <div class="line">
+                <span>備考２：</span>
+                <span><%= @danka.mark2 %></span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="past">
+      <div class="o-past">
+        <div class="o-header mb-5">
+          <h1 class="pl-3 pt-5">過去帳</h1>
+          <div class="float-right pr-4 mt-3">
+            <div class="btn btn-warning btn-sm"><%= link_to '　登録　', new_past_path(:danka_id => @danka.id) %></div>
           </div>
         </div>
 
-        <div class="past">
-          <div class="o-past">
-            <div class="o-header mb-5">
-              <h1 class="pl-3 pt-5">過去帳</h1>
-              <div class="float-right pr-4 mt-3">
-                <div class="btn btn-warning btn-sm"><%= link_to '　登録　', new_past_path(:danka_id => @danka.id) %></div>
-              </div>
-            </div>
 
+        <div class="mx-5 pon">
+          <% @pasts.each_with_index do |past,index| %>
+          <table class="table table-sm" style="border-spacing: 100px;">
+            <tbody>
+              <tr style="border-top: hidden;">
+                <th scope="row" rowspan="3"><br><%= index+1 %></th>
+                <td>俗名：<ruby><rb><%= past.name %><rt><%= past.subname %></ruby></td>
+                <td>戒名：<ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></td>
+                <td>生年月日：<%= past.birthday %></td>
+                <td>施主との関係：<%= past.relation %></td>
+                <td>
+                  <%= link_to "/pasts/#{past.id}",{method:"delete"} do %>
+                  <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <tr style="border: hidden;">
+                <td>享年：<%= past.deathage %></td>
+                <td>命日：<%= past.deathday %></td>
+                <td>葬儀の施主：<%= past.funeral %></td>
+                <td>備考1：<%= past.mark1 %></td>
+                <td>
+                  <%= link_to "/pasts/#{past.id}/edit" do %>
+                  <i class="far fa-edit"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <tr style="border-top: hidden;">
+                <td colspan="4">
 
-            <div class="mx-5">
-              <% @pasts.each_with_index do |past,index| %>
-              <table class="table table-sm" style="border-spacing: 100px;">
-                <tbody>
-                  <tr style="border-top: hidden;">
-                    <th scope="row" rowspan="3"><br><%= index+1 %></th>
-                    <td>俗名：<ruby><rb><%= past.name %><rt><%= past.subname %></ruby></td>
-                    <td>戒名：<ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></td>
-                    <td>生年月日：<%= past.birthday %></td>
-                    <td>施主との関係：<%= past.relation %></td>
-                    <td>
-                      <%= link_to "/pasts/#{past.id}",{method:"delete"} do %>
-                      <i class="far fa-trash-alt"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                  <tr style="border: hidden;">
-                    <td>享年：<%= past.deathage %></td>
-                    <td>命日：<%= past.deathday %></td>
-                    <td>葬儀の施主：<%= past.funeral %></td>
-                    <td>備考1：<%= past.mark1 %></td>
-                    <td>
-                      <%= link_to "/pasts/#{past.id}/edit" do %>
-                      <i class="far fa-edit"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                  <tr style="border-top: hidden;">
-                    <td colspan="4">
+                  <% mark = "#mark" + index.to_s %>
+                  <% mark_all_text = "mark" + index.to_s %>
 
-                      <% mark = "#mark" + index.to_s %>
-                      <% mark_all_text = "mark" + index.to_s %>
-
-                      <p class="table-last" data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
-                        備考2：<%= past.mark2 %>
-                      </p>
-                    </td>
-                    <td>
-                      <%= link_to kaiki_past_path(:format => :pdf) do %>
-                      <i class="far fa-copy"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="collapse" id=<%= mark_all_text %>>
-                <div class="card card-body">
-                  <p>
+                  <p class="table-last" data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
                     備考2：<%= past.mark2 %>
                   </p>
-                </div>
-              </div>
-              <% end %>
+                </td>
+                <td>
+                  <%= link_to kaiki_past_path(:format => :pdf) do %>
+                  <i class="far fa-copy"></i>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="collapse" id=<%= mark_all_text %>>
+            <div class="card card-body">
+              <p>
+                備考2：<%= past.mark2 %>
+              </p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+
+
+
+
+
+
+
+        <% @pasts.each_with_index do |past,index| %>
+        <div class="">
+          <table class="min-table">
+            <tr>
+              <th colspan="3">-<%= index+1 %>-</th>
+            </tr>
+            <tr>
+              <td data-label="俗名：">
+                <% mark = "#mark" + index.to_s %>
+                <% mark_all_text = "mark" + index.to_s %>
+                <a data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <ruby><rb><%= past.name %><rt><%= past.subname %></ruby>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="戒名："><ruby><rb><%= past.penname %><rt><%= past.subpenname %></ruby></td>
+            </tr>
+            <tr>
+              <td data-label="命日："><%= past.deathday %></td>
+            </tr>
+          </table>
+          <div class="collapse" id=<%= mark_all_text %>>
+            <div class="">
+              <table class="min-table">
+                <tr>
+                  <td data-label="生年月日："><%= past.birthday %></td>
+                </tr>
+                <tr>
+                  <td data-label="享年："><%= past.deathage %></td>
+                </tr>
+                <tr>
+                  <td data-label="葬儀の施主："><%= past.relation %></td>
+                </tr>
+                <tr>
+                  <td data-label="施主との関係："><%= past.funeral %></td>
+                </tr>
+                <tr>
+                  <td data-label="備考１："><%= past.mark1 %></td>
+                </tr>
+                <tr>
+                  <td data-label="備考２："><%= past.mark2 %></td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
-      </main>
+        <% end %>
+
+
+
+
+      </div>
+    </div>
+  </main>

@@ -1,6 +1,85 @@
 -------------------------------------<>---------------------------------------
 
 -------------------------------------<終わり>---------------------------------------
+-------------------------------------<旧型　過去帳テーブル>---------------------------------------
+<div class="container-fluid c-table">
+  <table class="table table-striped border">
+    <thead>
+      <tr class="text-nowrap">
+        <th scope="col">#</th>
+        <th scope="col">俗名</th>
+        <th scope="col">戒名</th>
+        <th scope="col">命日</th>
+        <th scope="col">享年</th>
+        <th scope="col">施主との関係</th>
+      </tr>
+    </thead>
+    <% @pasts.each do |past| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= past.id %></th>
+          <td class="text-nowrap">
+            <%= link_to danka_path(past.danka_id) do %>
+              <ruby>
+              <rb>
+                <%= past.name%>
+              <rt>
+                <%= past.subname %>
+              </ruby>
+            <% end %>
+          </td>
+          <td>
+            <ruby>
+            <rb>
+              <%= past.penname%>
+            <rt>
+              <%= past.subpenname %>
+            </ruby>
+          </td>
+          <td><%= past.deathday %></td>
+          <td><%= past.deathage %></td>
+          <td><%= past.relation %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+-------------------------------------<終わり>---------------------------------------
+-------------------------------------<旧型　檀家テーブル>---------------------------------------
+<div class="container-fluid c-table">
+  <table class="table table-striped border">
+    <thead>
+      <tr class="text-nowrap">
+        <th scope="col">#</th>
+        <th class="" scope="col">檀家名</th>
+        <th scope="col">郵便番号</th>
+        <th scope="col">住所</th>
+        <th scope="col">電話番号</th>
+      </tr>
+    </thead>
+    <% @dankas.each do |danka| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= danka.id %></th>
+          <td class="text-nowrap">
+            <%= link_to danka_path(danka) do %>
+              <ruby>
+              <rb>
+                <%= danka.name%>
+              <rt>
+                <%= danka.subname %>
+              </ruby>
+            <% end %>
+          </td>
+          <td class=""><%= danka.postal %></td>
+          <td><%= danka.addless %></td>
+          <td><%= danka.tel %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+-------------------------------------<終わり>---------------------------------------
 
 -------------------------------------<入力ホーム　旧型　過去町>---------------------------------------
 入力ホーム　旧型　過去町

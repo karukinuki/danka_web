@@ -1,21 +1,23 @@
   <%= stylesheet_link_tag 'pasts' %>
-    <main>
-      <div class="container mt-3">
+    <main class="my-3">
+      <div class="container">
         <span class="main-title h1">過去帳修正</span>
       </div>
       <div class="container">
         <%= form_for(@past) do |f| %>
-          <div class="form-check d-inline-block">
-            <%= f.label :check,"" %>
-            <%= f.check_box :check,class: "",value: @past.check %>
-          </div>
-          <div class="">
+          <div class="hide">
             <div class="form-check d-inline-block">
-              <%= f.label :danka_id,"檀家id" %>
-              <%= f.number_field :danka_id,class: "form-control",value: @past.danka_id %>
+              <%= f.label :check,"" %>
+              <%= f.check_box :check,class: "",value: @past.check %>
+            </div>
+            <div class="">
+              <div class="form-check d-inline-block">
+                <%= f.label :danka_id,"檀家id" %>
+                <%= f.number_field :danka_id,class: "form-control",value: @past.danka_id %>
+              </div>
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-row mt-3">
             <div class="form-group col-md-4 col-lg-3 col-8">
               <%= f.label :subname,"フリガナ" %>
               <%= f.text_field :subname,class: "form-control" %>

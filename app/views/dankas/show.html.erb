@@ -91,7 +91,7 @@
                 <td>生年月日：<%= past.birthday %></td>
                 <td>施主との関係：<%= past.relation %></td>
                 <td>
-                  <%= link_to "/pasts/#{past.id}",{method:"delete"} do %>
+                  <%= link_to "/pasts/#{past.id}", data: {confirm: '本当に削除してもよろしいでしょうか？',method:"delete"} do %>
                   <i class="far fa-trash-alt"></i>
                   <% end %>
                 </td>
@@ -113,7 +113,7 @@
                   <% mark = "#mark" + index.to_s %>
                   <% mark_all_text = "mark" + index.to_s %>
 
-                  <p class="table-last" data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <p class="table-last dot" data-toggle="collapse" href=<%= mark %> role="button" aria-expanded="false" aria-controls="collapseExample">
                     備考2：<%= past.mark2 %>
                   </p>
                 </td>

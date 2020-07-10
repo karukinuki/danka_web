@@ -1,21 +1,21 @@
 <%= stylesheet_link_tag 'dankas' %>
   <main>
-      <div class="">
+      <div class="d-head mt-4">
         <h1 class="pl-3">檀家名簿</h1>
-        <div class="float-right">
-          <span class="btn btn-warning"><%= link_to("檀家登録","/dankas/new")%></span>
-        </div>
-        <div class=" my-1 serch-form right float-right">
-          <%= search_form_for @q do |f| %>
-            <%= f.label :name_or_addless_cont,"檀家名" %>
-            <%= f.search_field :name_or_addless_cont %>
+        <div class="serch-box">
+          <div class="float-right">
+            <span class="btn btn-warning"><%= link_to("檀家登録","/dankas/new")%></span>
+          </div>
+          <div class=" my-1 serch-form right float-right">
+            <%= search_form_for @q do |f| %>
+              <%= f.label :name_or_addless_cont,"檀家名" %>
+              <%= f.search_field :name_or_addless_cont %>
 
-            <%= f.submit "検索" %>
-          <% end %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <br>
-      <br>
       <div class="danka-list">
         <table class="tbl-r05">
           <tr class="thead">

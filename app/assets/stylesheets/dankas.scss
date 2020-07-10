@@ -4,6 +4,9 @@
 .hide{
   display: none;
 }
+.d-head{
+  height: 120px;
+}
 .span{
   -webkit-text-combine: horizontal;
 }
@@ -48,6 +51,12 @@
   text-align: center;
 }
 @media screen and (min-width: 1050px){
+  .min-table{
+    display: none;
+  }
+  .serch-box{
+    margin-right: 2rem;
+  }
   .tbl-r05{
     margin-left: 4rem;
     margin-right: 4rem;
@@ -82,7 +91,13 @@
     width: 12%;
   }
 }
-@media screen and (min-width: 641px)and (max-width: 1049px) {
+@media screen and (min-width: 901px)and (max-width: 1049px) {
+  .min-table{
+    display: none;
+  }
+  .serch-box{
+    margin-right: 2rem;
+  }
   .danka-list{
     font-size: 1.2rem;
     line-height: 3rem;
@@ -115,8 +130,36 @@
   .t-5{
     width: 12%;
   }
+  .table-last{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70%;
+  }
 }
-
+@media screen and (max-width: 900px){
+  .pon{
+    display: none;
+  }
+  .min-table{
+    width: 80%;
+    margin: auto;
+  }
+  .min-table th{
+    text-align: center;
+    border-top: 3px solid #BBBBBB;
+  }
+  .min-table td{
+    border-bottom: 1px solid #BBBBBB;
+    line-height: 2rem;
+  }
+  .min-table td:before {
+    content: attr(data-label);
+  }
+  .min-table p{
+    display: inline-block;
+  }
+}
 
 @media screen and (max-width: 640px) {
   .tbl-r05 {
@@ -145,28 +188,4 @@
     font-weight: bold;
     margin-right: 10px;
   }
-}
-@media screen and (max-width: 900px){
-  .pon{
-    display: none;
-  }
-  .min-table{
-    width: 80%;
-    margin: auto;
-  }
-  .min-table th{
-    text-align: center;
-    border-top: 3px solid #BBBBBB;
-  }
-  .min-table td{
-    border-bottom: 1px solid #BBBBBB;
-    line-height: 2rem;
-  }
-  .min-table td:before {
-    content: attr(data-label);
-  }
-  min-table p{
-    display: inline-block;
-  }
-
 }

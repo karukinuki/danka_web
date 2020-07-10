@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'users/confirmations' }
 
   get 'home/index'=> "home#index"
   get 'home/policy'=> "home#policy"

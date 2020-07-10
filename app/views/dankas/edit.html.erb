@@ -1,16 +1,16 @@
   <%= stylesheet_link_tag 'dankas' %>
-    <main>
-      <div class="container mt-3">
-        <span class="main-title h1">基本情報</span>
+    <main class="my-3">
+      <div class="container">
+        <span class="main-title h1">檀家詳細編集</span>
       </div>
       <div class="container">
         <%= form_for(@danka) do |f| %>
-            <div class="form-check d-inline-block hide">
+            <div class="form-check hide">
               <%= f.label :check,"" %>
               <%= f.check_box :check,class: "" %>
             </div>
 
-          <div class="form-row">
+          <div class="form-row mt-3">
             <div class="form-group col-md-4 col-lg-3 col-8">
               <%= f.label :subname,"フリガナ" %>
               <%= f.text_field :subname,class: "form-control" %>
@@ -52,7 +52,7 @@
               <%= f.label :mark2,"備考2" %>
               <%= f.text_area :mark2,class: "form-control" %>
             </div>
-            <%= f.submit "　登録　",class: "btn btn-primary" %>
+            <%= f.submit "　編集完了　",class: "btn btn-primary" %>
         <% end %>
       </div>
     </main>

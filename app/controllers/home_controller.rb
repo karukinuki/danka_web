@@ -3,9 +3,7 @@ class HomeController < ApplicationController
 
     if user_signed_in?
       @user = User.find(current_user.id)
-      puts "------------"
-      puts User.name
-      puts "------------"
+      redirect_to dankas_path
     end
   end
 

@@ -91,10 +91,7 @@
     width: 12%;
   }
 }
-@media screen and (min-width: 901px)and (max-width: 1049px) {
-  .min-table{
-    display: none;
-  }
+@media screen and (min-width: 641px)and (max-width: 1049px) {
   .serch-box{
     margin-right: 2rem;
   }
@@ -117,6 +114,7 @@
   }
   .t-1{
     width: 5%;
+    text-align: center;
   }
   .t-2{
     width: 15%;
@@ -135,29 +133,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 70%;
-  }
-}
-@media screen and (max-width: 900px){
-  .pon{
-    display: none;
-  }
-  .min-table{
-    width: 80%;
-    margin: auto;
-  }
-  .min-table th{
-    text-align: center;
-    border-top: 3px solid #BBBBBB;
-  }
-  .min-table td{
-    border-bottom: 1px solid #BBBBBB;
-    line-height: 2rem;
-  }
-  .min-table td:before {
-    content: attr(data-label);
-  }
-  .min-table p{
-    display: inline-block;
   }
 }
 
@@ -187,5 +162,38 @@
     float: left;
     font-weight: bold;
     margin-right: 10px;
+  }
+}
+
+/*danka/showのテーブル*/
+@media screen and (min-width: 900px)and (max-width: 1050px){
+  .min-table{
+    display: none;
+  }
+}
+@media screen and (max-width: 900px){
+  .pon{
+    display: none;
+  }
+  .min-table{
+    width: 80%;
+    margin: auto;
+  }
+  .min-table th{
+    text-align: center;
+    border-top: 3px solid #BBBBBB;
+  }
+  .min-table td{
+    border-bottom: 1px solid #BBBBBB;
+    line-height: 2rem;
+  }
+  .min-table td:before {
+    content: attr(data-label);
+  }
+  .min-table p{
+    display: inline-block;
+  }
+  .btns{
+    text-align: center;
   }
 }

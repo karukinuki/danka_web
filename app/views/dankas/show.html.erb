@@ -140,8 +140,6 @@
 
 
 
-
-
         <% @pasts.each_with_index do |past,index| %>
         <div class="">
           <table class="min-table">
@@ -186,6 +184,14 @@
                   <td data-label="備考２："><%= past.mark2 %></td>
                 </tr>
               </table>
+              <div class="btns">
+                <%= link_to "/pasts/#{past.id}/edit" do %>
+                <i class="far fa-edit fa-2x mx-5 my-3"></i>
+                <% end %>
+                <%= link_to "/pasts/#{past.id}", data: {confirm: '本当に削除してもよろしいでしょうか？',method:"delete"} do %>
+                <i class="far fa-trash-alt fa-2x mx-5 my-3"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

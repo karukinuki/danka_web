@@ -59,7 +59,9 @@ group :production do
   gem 'mysql2'
   # gem 'pg'
 end
-
+group :production, :staging do
+    gem 'unicorn'
+end
 
 
 

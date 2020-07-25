@@ -59,10 +59,10 @@ group :production do
   gem 'mysql2'
   # gem 'pg'
 end
-
 group :production, :staging do
-  gem 'unicorn', '5.5.5'
+  gem 'unicorn'
 end
+
 
 
 gem 'pry-rails'
@@ -76,3 +76,4 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem "jquery-rails"
+

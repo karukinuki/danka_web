@@ -275,7 +275,7 @@ DEPENDENCIES
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
-  unicorn (= 5.5.5)
+  unicorn
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
@@ -284,3 +284,4 @@ DEPENDENCIES
 
 BUNDLED WITH
    1.17.2
+

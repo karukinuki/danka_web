@@ -60,7 +60,9 @@ group :production do
   # gem 'pg'
 end
 
-
+group :production, :staging do
+  gem 'unicorn', '5.5.5'
+end
 
 
 gem 'pry-rails'

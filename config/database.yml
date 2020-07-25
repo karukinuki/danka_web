@@ -14,6 +14,8 @@ test:
 production:
   <<: *default
   adapter: mysql2
+  database: danka_web_production
+  encoding: utf8
   username: root
-  password:
+  password: root
   pool: 5

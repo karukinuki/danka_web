@@ -60,7 +60,7 @@ group :production do
   # gem 'pg'
 end
 group :production, :staging do
-    gem 'unicorn'
+  gem 'unicorn'
 end
 
 

@@ -1,23 +1,22 @@
-h1{
-  color: red;
-}
-span{
-  color: red;
-}
-.nono{
-  color: red;
-  -webkit-text-combine: horizontal;
-}
 .kaiki{
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+  text-orientation: upright;  /* すべて縦方向に表示 */
   margin-left: 10rem;
   height: 794px;
   width: 1366px;
   font-size: 1.0rem;
 }
-
+.target{
+  color: red;
+}
+.newclass{
+  border: 1px solid red;
+}
+.test{
+  color: red;
+}
 .k-indent{
   text-indent: 1rem;
 }

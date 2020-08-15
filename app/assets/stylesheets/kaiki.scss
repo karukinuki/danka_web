@@ -1,21 +1,21 @@
+main{
+  height: 794px;
+  width: 1066px;
+}
 .kaiki{
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
-  text-orientation: upright;  /* すべて縦方向に表示 */
+  text-orientation: upright;
   margin-left: 10rem;
-  height: 794px;
-  width: 1366px;
   font-size: 1.0rem;
+  border: 1px solid black;
 }
-.target{
-  color: red;
-}
-.newclass{
-  border: 1px solid red;
-}
-.test{
-  color: red;
+.rotate{
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
 }
 .k-indent{
   text-indent: 1rem;

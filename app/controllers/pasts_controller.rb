@@ -56,9 +56,10 @@ class PastsController < ApplicationController
       format.pdf do
         render pdf: "kaiki",
         encoding: "UTF-8",
-        layout: "pdf.html",
+        layout: "pdf.html.erb",
         template: 'pasts/kaiki.html.erb',
         javascript_delay: 3000,
+        orientation: "Landscape",
         show_as_html: params[:debug].present?
       end
     end

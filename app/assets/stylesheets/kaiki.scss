@@ -1,43 +1,22 @@
 main{
-  height: 794px;
-  width: 1066px;
+  height: 850px;
+  width: 564px;
 }
 .kaiki{
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
-  text-orientation: upright;
-  margin-left: 10rem;
-  font-size: 1.0rem;
   border: 1px solid black;
 }
 .rotate{
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
+  -webkit-text-combine: horizontal;
 }
 .k-indent{
   text-indent: 1rem;
 }
-.k-head{
-  margin-right: 3rem;
-  margin-left: 5rem;
-  margin-top: 7rem;
-}
 .k-main{
-  margin: 3rem 3rem 4rem 2rem;
   font-size: 18px;
-}
-.k-big{
-  font-size: 28px;
 }
 .k-line{
   line-height: 3rem;
-}
-.k-end{
-  margin: 20rem 0 2rem 0;
-}
-.k-address{
-  margin-top: 1rem;
 }

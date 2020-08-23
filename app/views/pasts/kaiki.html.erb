@@ -13,20 +13,90 @@
   <div class="k-main">
     <div class="">
       <div class="">
-        合掌
+        <span class="rotate">合</span>
+        <span class="rotate">掌</span>
       </div>
       <div class="">
-        <p class="k-indent">季節の挨拶季節の挨拶季節の挨拶季節の挨拶<br>季節の挨拶季節の挨拶季節の挨拶
-          季節の挨拶季節の挨拶季節の挨拶季節の挨拶季節の挨拶<br>季節の挨拶季節の挨拶季節の挨拶季節の挨拶
-          季節の挨拶季節の挨拶季節の挨拶季節の挨拶季節の挨拶<br>季節の挨拶季節の挨拶季節の挨拶<br>
-          さて、
+        <p class="k-indent">
+          <span class="rotate">皆</span>
+          <span class="rotate">様</span>
+          <span class="rotate">に</span>
+          <span class="rotate">お</span>
+          <span class="rotate">か</span>
+          <span class="rotate">れ</span>
+          <span class="rotate">ま</span>
+          <span class="rotate">し</span>
+          <span class="rotate">て</span>
+          <span class="rotate">は</span>
+          <span class="rotate">御</span>
+          <span class="rotate">健</span>
+          <span class="rotate">勝</span>
+          <span class="rotate">の</span>
+          <span class="rotate">こ</span>
+          <span class="rotate">と</span>
+          <span class="rotate">と</span>
+          <span class="rotate">存</span>
+          <span class="rotate">じ</span>
+          <span class="rotate">申</span>
+          <span class="rotate">し</span>
+          <span class="rotate">あ</span>
+          <span class="rotate">げ</span>
+          <span class="rotate">ま</span>
+          <span class="rotate">す</span>
+          <br>
+          <span class="rotate">　</span>
+          <span class="rotate">本</span>
+          <span class="rotate">年</span>
+          <span class="rotate">は</span>
+          <span class="rotate">左</span>
+          <span class="rotate">記</span>
+          <span class="rotate">の</span>
+          <span class="rotate">よ</span>
+          <span class="rotate">う</span>
+          <span class="rotate">に</span>
+          <span class="rotate">御</span>
+          <span class="rotate">家</span>
+          <span class="rotate">族</span>
+          <span class="rotate">様</span>
+          <span class="rotate">の</span>
+          <span class="rotate">年</span>
+          <span class="rotate">回</span>
+          <span class="rotate">忌</span>
+          <span class="rotate">が</span>
+          <span class="rotate">参</span>
+          <span class="rotate">り</span>
+          <span class="rotate">ま</span>
+          <span class="rotate">す</span>
+          <span class="rotate">の</span>
+          <span class="rotate">で</span>
+          <span class="rotate">御</span>
+          <span class="rotate">案</span>
+          <span class="rotate">内</span>
+          <span class="rotate">申</span>
+          <span class="rotate">し</span>
+          <span class="rotate">上</span>
+          <span class="rotate">げ</span>
+          <span class="rotate">ま</span>
+          <span class="rotate">す</span>
         </p>
         <div class="k-line">
-          <span><%= Time.current.year %>年</span>
-          <span><%= @past.deathday.month %>月<%= @past.deathday.day %>日</span><br>
-          <span class="k-big">法名<%= @past.penname %></span><br>
-          <span><%= @current %></span>様の
-
+          <span class="rotate">命</span>
+          <span class="rotate">日</span>
+          <span class="rotate">　</span>
+          <span><%= Time.current.year %></span>
+          <span class="rotate">年</span>
+          <span><%= @past.deathday.month %></span>
+          <span class="rotate">月</span>
+          <span><%= @past.deathday.day %></span>
+          <span class="rotate">日</span>
+          <br>
+          <span class="rotate">法</span>
+          <span class="rotate">名</span>
+          <span class="rotate">　</span>
+          <span class="rotate"><%= @past.penname %></span>
+          <span><%= @past.name %></span>
+          <span class="rotate">様</span>
+          <span class="rotate">の</span>
           <span>
             <% if @current - @death == 1 %>
               壱周忌
@@ -39,7 +109,10 @@
             <% elsif @current - @death == 22 %>
               二十三回忌
             <% else %>
-              年忌法要
+              <span class="rotate">年</span>
+              <span class="rotate">忌</span>
+              <span class="rotate">法</span>
+              <span class="rotate">要</span>
             <% end %>
           </span>が参ります。
         </div>

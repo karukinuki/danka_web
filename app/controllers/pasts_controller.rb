@@ -59,8 +59,8 @@ class PastsController < ApplicationController
         layout: "pdf.html.erb",
         template: 'pasts/kaiki.html.erb',
         javascript_delay: 3000,
-        orientation: "Landscape",
-        show_as_html: params[:debug].present?
+        show_as_html: params[:debug].present?,
+        page_size: 'A6'
       end
     end
   end

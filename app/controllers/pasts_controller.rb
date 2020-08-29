@@ -50,6 +50,7 @@ class PastsController < ApplicationController
     @past = Past.find_by(danka_id:params[:id])
     @current = Time.current.year
     @death = @past.deathday.year
+    @user = User.find(current_user.id)
 
     respond_to do |format|
       format.html

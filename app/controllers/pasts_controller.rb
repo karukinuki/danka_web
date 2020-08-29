@@ -47,7 +47,19 @@ class PastsController < ApplicationController
   end
 
   def kaiki
-    @past = Past.find_by(danka_id:params[:id])
+    puts "-----------------------------"
+    puts params
+    puts "-----------------------------"
+    puts "-----------------------------"
+    puts params[:id]
+    puts "-----------------------------"
+    @past = Past.find_by(danka_id: params[:id])
+    puts "-----------------------------"
+    puts @past.inspect
+    puts "-----------------------------"
+    puts "-----------------------------"
+    puts @past.deathday.inspect
+    puts "-----------------------------"
     @current = Time.current.year
     @death = 1#@past.deathday.year
     @user = User.find(current_user.id)

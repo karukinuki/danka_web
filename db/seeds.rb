@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 3.times do |n|
   Danka.create(name: "山田太郎#{n+1}",subname: "ヤマダタロウ#{n+1}",postal: 1110000+n,
-    addless: "東京都港区芝公園1丁目1−1",tel: 1111111111,email: "#{n+1}danka@ooo.com",mark1: "世話人",
+    addless: "東京都港区芝公園1丁目1−1",tel: 0311111111,email: "#{n+1}danka@ooo.com",mark1: "世話人",
     mark2: "H２８新規檀家、田中二郎様の紹介により入檀。")
     3.times do |a|
       now = Time.current
@@ -21,7 +21,7 @@
         mark2: "消防士、団長")
     end
   Danka.create(name: "田中二郎#{n+1}",subname: "タナカジロウ#{n+1}",postal: 2220000+n,
-    addless: "東京都世田谷区下北沢1丁目1−1",tel: 2222222222,email: "#{n+1}tanaka@ooo.com",mark1: "",
+    addless: "東京都世田谷区下北沢1丁目1−1",tel: 0322222222,email: "#{n+1}tanaka@ooo.com",mark1: "",
     mark2: "田中家本家。分家には田中喜朗、田中吉郎、田中道之。写経会の先生をしているとともに自宅で教室もしている。")
     3.times do |a|
       now = Time.current
@@ -35,7 +35,7 @@
         mark2: "")
     end
   Danka.create(name: "加藤三郎#{n+1}",subname: "カトウサブロウ#{n+1}",postal: 3330000+n,
-    addless: "東京都板橋区板橋1丁目1−1",tel: 3333333333,email: "#{n+1}kato@ooo.com",mark1: "寄付者",
+    addless: "東京都板橋区板橋1丁目1−1",tel: 0333333333,email: "#{n+1}kato@ooo.com",mark1: "寄付者",
     mark2: "H22年本堂の灯籠を寄付、そのほか除雪車も寄付。")
     3.times do |a|
       now = Time.current

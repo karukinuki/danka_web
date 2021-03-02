@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'dankas' %>
   <main>
-      <div class="d-head mt-4">
+      <div class="header">
         <h1 class="pl-3">檀家名簿</h1>
         <div class="serch-box">
           <div class="float-right">
@@ -10,7 +10,6 @@
             <%= search_form_for @q do |f| %>
               <%= f.label :name_or_addless_cont,"檀家名" %>
               <%= f.search_field :name_or_addless_cont %>
-
               <%= f.submit "検索" %>
             <% end %>
           </div>
@@ -20,7 +19,7 @@
         <table class="tbl-r05">
           <tr class="thead">
             <th class="t-1">#</th>
-            <th class="t-2">檀家</th>
+            <th class="t-2">檀家名</th>
             <th class="t-3">郵便番号</th>
             <th class="t-4">住所</th>
             <th class="t-5">電話番号</th>
